@@ -1,0 +1,31 @@
+tumor_grade_features
+Nottingham grade
+Unnamed: 32
+Unnamed: 33
+Menopause (at diagnosis)
+Adjuvant Anti-Her2 Neu Therapy 
+Neoadjuvant Chemotherapy
+Unnamed: 67
+Mol Subtype
+Lymphadenopathy or Suspicious Nodes
+"Age at last contact in EMR f/u(days)(from the date of diagnosis) ,last time patient known to be alive, unless age of death is reported(in such case the age of death"
+Oncotype score
+Staging(Tumor Size)# [T]
+Staging(Metastasis)#(Mx -replaced by -1)[M]
+Skin/Nipple Invovlement
+ER
+Date of Birth (Days)
+Neoadjuvant Radiation Therapy
+Overall Near-complete Response:  Stricter Definition
+HER2
+TE (Echo Time)
+Manufacturer
+Pathologic response to Neoadjuvant therapy:  Pathologic stage (M) following neoadjuvant therapy 
+Contrast Agent
+Pathologic response to Neoadjuvant therapy: Pathologic stage (T) following neoadjuvant therapy 
+Therapeutic or Prophylactic Oophorectomy as part of Endocrine Therapy 
+Multicentric/Multifocal
+Rows
+Columns
+contrast
+Neoadjuvant Anti-Her2 Neu Therapy
