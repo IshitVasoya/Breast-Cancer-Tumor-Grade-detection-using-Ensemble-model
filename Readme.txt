@@ -1,0 +1,8 @@
+Breast Cancer Tumor Grade Prediction
+
+This repository implements a hybrid radiomics + deep learning pipeline to predict breast cancer tumor grade from MRI. It extracts handcrafted radiomic features and deep embeddings (via EfficientNetB7), selects key predictors, trains Random Forest and CNN classifiers, and ensembles their outputs for robust, interpretable grading.
+
+Dataset
+
+Duke Breast Cancer MRI (TCIA) – 925 patients
+https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/(For this demo, we downloaded the first 100 patient folders.)
