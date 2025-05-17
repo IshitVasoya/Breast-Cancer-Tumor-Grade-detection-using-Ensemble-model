@@ -5,4 +5,8 @@ This repository implements a hybrid radiomics + deep learning pipeline to predic
 Dataset
 
 Duke Breast Cancer MRI (TCIA) – 925 patients
-https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri/(For this demo, we downloaded the first 100 patient folders.)
+https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri (For this demo, we downloaded the first 100 patient folders.)
+you have to download NBIA data retriver tool to download this dataset.
+
+
+to run the model, first extract the zip file and then first run the Analyse_Dataset.ipynb file and then run the the Features Extractiona and model development_newVersion.ipynb file.
