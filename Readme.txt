@@ -1,12 +1,101 @@
-Breast Cancer Tumor Grade Prediction
+# Breast Cancer Detection and Prognosis Prediction
+## Multi-Modal Machine Learning: A Radiogenomics Approach
 
-This repository implements a hybrid radiomics + deep learning pipeline to predict breast cancer tumor grade from MRI. It extracts handcrafted radiomic features and deep embeddings (via EfficientNetB7), selects key predictors, trains Random Forest and CNN classifiers, and ensembles their outputs for robust, interpretable grading.
+![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=flat-square&logo=tensorflow)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.x-green?style=flat-square&logo=scikit-learn)
+![License](https://img.shields.io/badge/License-MIT-purple?style=flat-square)
 
-Dataset
+---
 
-Duke Breast Cancer MRI (TCIA) – 925 patients
-https://www.cancerimagingarchive.net/collection/duke-breast-cancer-mri (For this demo, we downloaded the first 100 patient folders.)
-you have to download NBIA data retriver tool to download this dataset.
+## Overview
 
+Most breast cancer diagnostic models rely on a **single data source** — either imaging or clinical records — which limits predictive accuracy and clinical utility. This project addresses that gap by building a **multi-modal machine learning system** that fuses DCE-MRI imaging data with structured clinical records (a radiogenomics approach) to improve early detection and tumor grade classification.
 
-to run the model, first extract the zip file and then first run the Analyse_Dataset.ipynb file and then run the the Features Extractiona and model development_newVersion.ipynb file.
+The core hypothesis: imaging tells you *what* a tumor looks like, clinical data tells you *who* the patient is. Combining both produces a more robust and generalizable diagnostic model than either alone.
+
+---
+
+## What Was Built
+
+A hybrid ensemble pipeline with three main components:
+
+**1. CNN Image Processing Branch**
+- Processes DCE-MRI scans to extract spatial imaging features
+- Detects tumor morphology, size, and calcification patterns
+- Built with TensorFlow/Keras using EfficientNetB7 as the backbone architecture
+
+**2. Random Forest Clinical Branch**
+- Processes structured clinical features: patient history, lab values, demographic data
+- Handles missing data, categorical encoding, and feature selection
+- Built with Scikit-learn
+
+**3. Late Fusion Ensemble**
+- Each branch produces independent predictions
+- Predictions are combined via weighted late fusion
+- Ensemble outperforms either single-modality model alone in tumor grade classification
+
+---
+
+## Technical Stack
+
+| Component | Technology |
+|---|---|
+| Deep Learning | TensorFlow, Keras, EfficientNetB7 |
+| Classical ML | Scikit-learn (Random Forest) |
+| Explainability | SHAP, Grad-CAM |
+| Data Processing | NumPy, Pandas |
+| Visualization | Matplotlib, Seaborn |
+| Language | Python 3.9+ |
+
+---
+
+## Explainability
+
+In medical AI, **why** a model made a decision matters as much as the decision itself. Two interpretability tools were integrated:
+
+- **Grad-CAM**: Visualizes which regions of the MRI scan the CNN is focusing on when making a prediction — produces heatmaps overlaid on the original image
+- **SHAP (SHapley Additive exPlanations)**: Quantifies the contribution of each clinical feature to the final prediction, enabling clinician review and model auditing
+
+---
+
+## Key Results
+
+- Ensemble model outperformed single-modality baselines on tumor grade classification
+- Late fusion approach improved robustness by preventing either model's weaknesses from dominating
+- Grad-CAM visualizations confirmed the model was focusing on clinically relevant tumor regions
+- SHAP analysis identified the top contributing clinical features aligned with known medical literature
+
+---
+
+## Project Structure
+
+```
+├── notebooks/
+│   ├── 01_data_preprocessing.ipynb       # Data loading, cleaning, feature engineering
+│   ├── 02_cnn_imaging_pipeline.ipynb     # CNN model training on DCE-MRI data
+│   ├── 03_random_forest_clinical.ipynb   # Random Forest on clinical features
+│   ├── 04_late_fusion_ensemble.ipynb     # Combining both models via late fusion
+│   └── 05_explainability.ipynb           # SHAP and Grad-CAM analysis
+├── README.md
+```
+
+---
+
+## Why This Matters
+
+Breast cancer is the most commonly diagnosed cancer in women globally. Early detection and accurate grade classification directly impact treatment planning and patient outcomes. Single-modality approaches leave signal on the table — this project demonstrates that combining imaging and clinical data through a principled fusion architecture meaningfully improves predictive accuracy while maintaining clinical interpretability.
+
+---
+
+## Author
+
+**Ishit Vasoya**
+MS in Computer Science — University of Colorado Denver (GPA: 3.86/4.0)
+[LinkedIn](https://linkedin.com/in/ishit-vasoya) • [GitHub](https://github.com/IshitVasoya)
+
+---
+
+## Acknowledgements
+
+This project was completed as graduate research at the University of Colorado Denver. Dataset sourced from publicly available medical imaging repositories.
